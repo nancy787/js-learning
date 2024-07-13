@@ -25,4 +25,4 @@ Min = 10;
 Max = 20;
 //if you want raandom number between MIN to Max
 
-console.log(Math.floor(Math.random() * 10) + Min)
+console.log(Math.floor(Math.random() * 10) + Min);
