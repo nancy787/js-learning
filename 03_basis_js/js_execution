@@ -1,0 +1,7 @@
+// first time global ececution takes inside
+// {}
+
+// second time execution() 
+
+//memory execution at the time of execution
+//at the time of memory phase veriable are undefinded
