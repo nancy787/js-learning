@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the numeber</title>
+</head>
+<body style="background-color: black; color: white;">
+    <h2>Guess the Number</h2>
+    <input type="number" id="random_num" value="">
+    <br>
+    <button  id="guess_submit" type="button">Submit Guess</button>
+    <br>
+    <label id="">Previous Guess: <span id="previous_guess"></span></label>
+    <br>
+    <label id="guess_remaining">Guess remaining :<span id="remaining">10</span></label>
+    <div id="success"></div>
+</body>
+</html>
+<script>
+    let remainingGuess = document.querySelector('#remaining');
+    let chances = remainingGuess.textContent;
+    let guessSubmit = document.querySelector('#guess_submit');
+    guessSubmit.addEventListener('click', function ( ) {
+        remainingGuess.textContent =  chances--;
+        if (chances == 0) {
+            document.querySelector('#success').innerText = "your chanses is completed";
+            return;
+        }
+        let inputNum = document.querySelector('#random_num').value;
+        let  previousGuess = document.querySelector('#previous_guess')
+        previousGuess.innerHTML = inputNum;
+        let randomNumber = parseInt(Math.random() * 100 + 1);
+       if(inputNum == randomNumber){
+            document.querySelector('#success').innerText = "you Won !";
+       }else {
+            document.querySelector('#success').innerText = "you loose !";
+       }
+    })
+    
+</script>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KeyBoard Check</title>
+</head>
+<body style="background-color: black; color: #fff;">
+    <h3>KeyBoard Check</h3>
+    <!-- <input type="text" id="keyboardCheck" value="" placeholder="eneter KeyBoard"> -->
+    <div id="youEnteredNumber">test</div>
+    <!-- <button id="clickme">Check</button> -->
+</body>
+</html>
+<script>
+    let youEnteredNumbers = document.querySelector('#youEnteredNumber');
+    window.addEventListener('keypress', function(e){
+        youEnteredNumbers.innerHtml = `<span>
+                ${e.key} is presseds
+            </span>`;
+    });
+</script>

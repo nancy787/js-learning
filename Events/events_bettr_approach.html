@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+</head>
+<body>
+  <h4>Events</h4>
+<!-- <button type="button" onclick="alert(1)" id="btn-1">Btn1</button> //should not use this approach-->
+<div id="btns">
+<button type="button" class="display" id="btn-1">Btn1</button>
+<button type="button"  id="btn-2">Btn2</button>
+<button type="button"  id="btn-3">Btn3</button>
+<button type="button"  id="btn-4">Btn4</button>
+</div>
+</body>
+</html>
+
+<script>
+    //approach 2
+
+    // document.getElementById('btn-1').onclick = function() {
+    //     alert("btn1 clicked");
+    // }
+
+    //bettwr approach
+    // document.getElementById('btn-1').addEventListener('click', function(){
+    //     alert("btn1 clicked again");
+    // }, false) //by default it is false that is why we do not add false event propogatoon
+
+     //intervie asked in event
+    //type,timestamp,defaultPrevent,target, toElement, sourceElement, currentTarget
+    //clientX,clientY,screenX,screenY,
+    //altKry,ctrlkey,shiftkey,keyCode
+
+
+    //Event Propogation
+    // Event Caputring => top to bottom
+    // Evnet bubbling => botttom to top
+
+//Evnet bubbling
+    // document.getElementById('btns').addEventListener('click', function(){
+    //     alert("btns clicked")
+    // }, false);
+    // document.getElementById('btn-1').addEventListener('click', function(e){
+    //     e.stopPropagation();
+    //     alert("btn1 clicked again");
+    // }, false)
+
+    //Event Caputring => top to bottom 
+    // document.getElementById('btns').addEventListener('click', function(e){
+    //     alert("btns clicked")
+    // }, true);
+
+    // document.getElementById('btn-1').addEventListener('click', function(e){
+    //     alert("btn1 clicked again");
+    // })
+
+    // document.getElementById('btn-2').addEventListener('click', function(e){
+    //     e.preventDefault();
+    //     e.stopPropagation();
+    //     alert('button 2 is clieckd')
+    // },false);
+
+    let btn = document.getElementById('btns');
+
+    btn.addEventListener('click', function(event){
+        event.preventDefault();
+        // console.log( event.target.tagName); //to get tag name
+        let displaNone = event.target;
+        displaNone.remove();
+        // let parentTarget = event.target.parentNode;
+        //     console.log(parentTarget);
+        //     parentTarget.parentNode.removeChild(parentTarget);
+    }, false)
+</script>

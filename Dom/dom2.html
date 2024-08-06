@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom</title>
+</head>
+
+  <body style="background: #212121; color: #fff" >
+    <ul class="language">
+        <li>Javasctipt</li>
+    </ul>
+
+</body>
+
+<script>
+    function addLanguages(langName) {
+       let list =  document.createElement('li');
+       list.innerHTML = `${langName}`
+       document.querySelector('.language').appendChild(list);
+    }
+    addLanguages("python");
+
+    function addOptimizeLanguages(langName) {
+       let list =  document.createElement('li');
+       list.appendChild(document.createTextNode(langName))
+       document.querySelector('.language').appendChild(list);
+    }
+    addOptimizeLanguages('php');
+
+    
+    //Edit 
+    const secondlist = document.querySelector('li:nth-child(2)');
+    // secondlist.innerText = 'Node';
+    const newLi = document.createElement('li');
+    newLi.textContent="Node";
+    secondlist.replaceWith(newLi);
+
+    const FirstList = document.querySelector('li:first-child');
+    FirstList.outerHTML='<li>React</li>'
+
+    //remove
+
+    const lastChild = document.querySelector('li:last-child');
+    lastChild.remove();
+</script>
+</html>

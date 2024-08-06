@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Switcher</title>
+</head>
+<body id="bg-color">
+    <div class="container">
+        <span id="yellow" onclick="changeColor('yellow')" >Yellow</span>
+        <span id="grey" onclick="changeColor('grey')" >Grey</span>
+        <span id="green" onclick="changeColor('green')" >Green</span>
+        <span id="pink" onclick="changeColor('pink')" >pink</span>
+    </div>
+</body>
+<style>
+    span {
+       border: 1px solid;
+        padding: 10px;
+        position: relative;
+        top: 10px;
+        left: 15px;
+    }
+    .container {
+    position: relative;
+    top: 50px;
+    left: 50%;
+    }
+</style>
+<script>
+
+    let col =  document.querySelectorAll('span');
+    col.forEach(color => {
+    colorId = color.id;
+    color.style.backgroundColor = `${colorId}`;
+    color.style.cursor = 'pointer';
+    });
+
+    function changeColor(color){
+       const bodybgColor =  document.getElementById('bg-color');
+       return bodybgColor.style.backgroundColor = `${color}`;
+    }
+
+ 
+   
+</script>
+</html>

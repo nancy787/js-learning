@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digitalclock</title>
+</head>
+<body style="background-color: black;  color: white;" >
+    <div>
+        <div id="local"><span>Your Local Time</span></div>
+        <div id="">
+            <button type="button" id="clock" onclick="startTime()">clock</button>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    let clock = document.getElementById('clock');
+    function startTime() {
+        setInterval(() => {
+        let dateFormat =new Date();
+        // clock.append(dateFormat.toLocaleTimeString());
+       clock.innerHTML = dateFormat.toLocaleTimeString(); 
+    }, 1000);
+    }
+</script>

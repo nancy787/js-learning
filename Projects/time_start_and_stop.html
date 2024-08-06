@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3 id="time">Time</h3>
+    <button id="start" type="button">start</button>
+        <span id="display"></span>
+    <button id="stop" type="button">stop</button>
+</body>
+</html>
+<script>
+
+    const startBtn = document.querySelector("#start");
+    const stopBtn = document.querySelector("#stop");
+    const displayTime = document.querySelector("#display");
+    let timeInterval;
+
+    let timeStart = function(){
+        displayTime.innerHTML = Date.now();
+    };
+
+    startBtn.addEventListener('click', function() {
+        timeInterval =  setInterval(timeStart, 1000);
+    });
+    stopBtn.addEventListener('click', function() {
+        clearInterval(timeInterval)
+    });
+
+    // const timeStart = function()
+    // const headerChange = function(){
+    //     let time = document.querySelector('#time');
+    //     time.innerHTML = 'Nancy';
+
+    // };
+    // setTimeout(headerChange, 2000);
+    // clearTimeout(headerChange)
+
+    // const timeInterval = function(str){
+    //     console.log(str, Date.now());
+    // }
+
+    // const intervalId  =  setInterval(timeInterval, 1000, "nancy");
+
+    // clearInterval(intervalId);
+
+</script>
