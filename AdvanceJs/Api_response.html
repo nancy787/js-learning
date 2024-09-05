@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Api Response</title>
+</head>
+<body style="">
+    <h1>Api Response</h1>
+    <div class="card">
+        <img id="userImg" alt="Avatar" style="width:100px">
+        <div class="container">
+          <h4 id="Name"><b></b></h4>
+          <span>followers<p id="followers"></p></span>
+        </div>
+      </div>
+</body>
+</html>
+<style>
+    .card {
+  box-shadow: 0 4px 8px 0 rgba(136, 73, 73, 0.2);
+  transition: 0.3s;
+}
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+  padding: 2px 16px;
+}   
+</style>
+<script>
+    const requestURl = "https://api.github.com/users/nancy787";
+    const xhrRequest = new XMLHttpRequest();
+    xhrRequest.open('GET', requestURl);
+    xhrRequest.onreadystatechange = function (){
+        const response = JSON.parse(this.responseText);
+        let avatarImage= document.querySelector('#userImg');
+        let Name= document.querySelector('#Name');
+        let followers= document.querySelector('#followers');
+        avatarImage.src = response.avatar_url;
+        followers.innerText = response.followers;
+    };
+
+    xhrRequest.send();
+</script>
